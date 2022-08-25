@@ -18,8 +18,19 @@ from django.urls import path
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("hallo mjad")
+
+def contact(request):
+    return HttpResponse("tudias")
+
 
 urlpatterns = [
     path('',include('myapp.urls')),
-    path('admin/', admin.site.urls),
+     path('^admin/', admin.site.urls),
+    path ("as/",home),
+    path ("about/",contact),
 ]
